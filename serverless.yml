@@ -1,0 +1,17 @@
+service: hello
+provider:
+  name: aws
+  runtime: dart
+  lambdaHashingVersion: 20201221
+  memorySize: 128
+package:
+  individually: true
+plugins:
+  - serverless-dart
+functions:
+  hello:
+    handler: main.hello
+    events:
+      - http:
+          path: /hello
+          method: GET
